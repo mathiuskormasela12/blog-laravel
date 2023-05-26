@@ -26,5 +26,34 @@ Route::get('/content', function () {
 });
 
 Route::get('/information', function () {
-return view('information');
+	return view('information');
 });
+
+Route::get('/add-topic', function () {
+	return view('add', [
+		"name" => 'topic',
+		"postUrl" => '/add-topic'
+	]);
+});
+
+Route::get('/add-materi', function () {
+	return view('add', [
+		"name" => 'materi',
+		"postUrl" => '/add-materi'
+	]);
+});
+
+Route::get('/add-information', function () {
+	return view('add', [
+		"name" => 'information',
+		"postUrl" => '/add-materi'
+	]);
+});
+
+Route::get('/add-content', function () {
+	return view('add', [
+		"name" => 'content',
+		"postUrl" => '/add-materi'
+	]);
+});
+

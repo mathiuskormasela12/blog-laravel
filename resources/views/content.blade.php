@@ -37,7 +37,7 @@
 					<h1>Content</h1>
 				</div>
 				<div class="col-md-12 mt-4 mb-5">
-					<button type="button" class="btn btn-primary">Add Content</button>
+					<a href="/add-content" class="btn btn-primary">Add Content</a>
 				</div>
 				<div class="col-md-12">
 					<table class="table">

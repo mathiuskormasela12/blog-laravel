@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Blog - Materi</title>
+    <title>Blog - Add {{ucfirst($name)}}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   </head>
   <body>
@@ -16,10 +16,10 @@
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
 					<li class="nav-item">
-						<a class="nav-link" aria-current="page" href="/">Topic</a>
+						<a class="nav-link active" aria-current="page" href="/">Topic</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link active" href="/materi">Materi</a>
+						<a class="nav-link" href="/materi">Materi</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="/content">Content</a>
@@ -34,35 +34,22 @@
     <div class="container">
 			<div class="row mt-5">
 				<div class="col-md-12">
-					<h1>Materi</h1>
+					<h1>{{ucfirst($name)}}</h1>
 				</div>
 				<div class="col-md-12 mt-4 mb-5">
-					<a href="/add-materi" class="btn btn-primary">Add Materi</a>
-				</div>
-				<div class="col-md-12">
-					<table class="table">
-						<thead>
-							<tr>
-								<th>No.</th>
-								<th>Materi Title</th>
-								<th>Materi Description</th>
-								<th>Created At</th>
-								<th>Action</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>1</td>
-								<td>Belajar Laravel</td>
-								<td>Lorem ipsum dolor sit amet consectetur...</td>
-								<td>2023-05-24</td>
-								<td>
-									<button type="button" class="btn btn-primary">Detail</button>
-									<button type="button" class="btn btn-danger">Remove</button>
-								</td>
-							</tr>
-						</tbody>
-					</table>
+					<form method="post" action="{{$postUrl}}">
+						<div class="mb-3">
+							<label for="exampleFormControlInput1" class="form-label">{{ucfirst($name)}} Title</label>
+							<input type="text" name="{{$name}}_title" class="form-control" id="exampleFormControlInput1" placeholder="{{ucfirst($name)}} Title...">
+						</div>
+						<div class="mb-3">
+							<label for="exampleFormControlTextarea1" class="form-label">{{ucfirst($name)}} Description</label>
+							<textarea name="{{$name}}_description" class="form-control" placeholder="{{ucfirst($name)}} Description..." id="exampleFormControlTextarea1" rows="3"></textarea>
+						</div>
+						<div  class="mb-3">
+							<button type="submit" class="btn btn-primary">Save</button>
+						</div>
+					</form>
 				</div>
 			</div>
     </div>
