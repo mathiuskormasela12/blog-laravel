@@ -51,16 +51,21 @@
 							</tr>
 						</thead>
 						<tbody>
+							@foreach ($topics as $topic)
 							<tr>
-								<td>1</td>
-								<td>Belajar Laravel</td>
-								<td>Lorem ipsum dolor sit amet consectetur...</td>
-								<td>2023-05-24</td>
+								<td>{{$topic->id}}</td>
+								<td>{{substr($topic->topic_title, 0, 15)}}...</td>
+								<td>{{substr($topic->topic_description, 0, 20)}}...</td>
+								<td>{{$topic->created_at->format('Y-m-d')}}</td>
 								<td>
-									<button type="button" class="btn btn-primary">Detail</button>
-									<button type="button" class="btn btn-danger">Remove</button>
+									<form action="/detail-topic-delete/{{$topic->id}}" method="POST" enctype="multipart/form-data">
+										@csrf
+										<a href="/detail-topic/{{$topic->id}}" class="btn btn-primary">Detail</a>
+										<button type="submit" class="btn btn-danger">Delete</button>
+									</form>
 								</td>
 							</tr>
+							@endforeach
 						</tbody>
 					</table>
 				</div>

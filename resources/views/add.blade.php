@@ -37,7 +37,8 @@
 					<h1>{{ucfirst($name)}}</h1>
 				</div>
 				<div class="col-md-12 mt-4 mb-5">
-					<form method="post" action="{{$postUrl}}">
+					<form action="/add-topic" method="POST" enctype="multipart/form-data">
+						@csrf
 						<div class="mb-3">
 							<label for="exampleFormControlInput1" class="form-label">{{ucfirst($name)}} Title</label>
 							<input type="text" name="{{$name}}_title" class="form-control" id="exampleFormControlInput1" placeholder="{{ucfirst($name)}} Title...">

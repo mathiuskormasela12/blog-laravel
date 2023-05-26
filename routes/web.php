@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TopicController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,47 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-
-Route::get('/materi', function () {
-	return view('materi');
-});
-
-Route::get('/content', function () {
-	return view('content');
-});
-
-Route::get('/information', function () {
-	return view('information');
-});
-
-Route::get('/add-topic', function () {
-	return view('add', [
-		"name" => 'topic',
-		"postUrl" => '/add-topic'
-	]);
-});
-
-Route::get('/add-materi', function () {
-	return view('add', [
-		"name" => 'materi',
-		"postUrl" => '/add-materi'
-	]);
-});
-
-Route::get('/add-information', function () {
-	return view('add', [
-		"name" => 'information',
-		"postUrl" => '/add-materi'
-	]);
-});
-
-Route::get('/add-content', function () {
-	return view('add', [
-		"name" => 'content',
-		"postUrl" => '/add-materi'
-	]);
-});
-
+Route::get('/', [TopicController::class, 'index']);
+Route::get('/add-topic', [TopicController::class, 'create']);
+Route::post('/add-topic', [TopicController::class, 'store']);
+Route::get('/detail-topic/{id}', [TopicController::class, 'detail']);
+Route::post('/detail-topic/{id}', [TopicController::class, 'update']);
+Route::post('/detail-topic-delete/{id}', [TopicController::class, 'remove']);
