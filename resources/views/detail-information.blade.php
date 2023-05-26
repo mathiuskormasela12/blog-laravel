@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Blog - Add {{ucfirst($name)}}</title>
+    <title>Blog - Detail Information</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   </head>
   <body>
@@ -25,7 +25,7 @@
 						<a class="nav-link" href="/content">Content</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="/information">Information</a>
+						<a class="nav-link active" href="/information">Information</a>
 					</li>
 				</ul>
 			</div>
@@ -34,18 +34,18 @@
     <div class="container">
 			<div class="row mt-5">
 				<div class="col-md-12">
-					<h1>{{ucfirst($name)}}</h1>
+					<h1>Detail Information</h1>
 				</div>
 				<div class="col-md-12 mt-4 mb-5">
-					<form action="/add-{{$name}}" method="POST" enctype="multipart/form-data">
+					<form action="/detail-information/{{$informationId}}" method="POST" enctype="multipart/form-data">
 						@csrf
 						<div class="mb-3">
-							<label for="exampleFormControlInput1" class="form-label">{{ucfirst($name)}} Title</label>
-							<input type="text" name="{{$name}}_title" class="form-control" id="exampleFormControlInput1" placeholder="{{ucfirst($name)}} Title...">
+							<label for="exampleFormControlInput1" class="form-label">Information Title</label>
+							<input type="text" name="information_title" class="form-control" id="exampleFormControlInput1" placeholder="Information Title..." value="{{$information_title}}">
 						</div>
 						<div class="mb-3">
-							<label for="exampleFormControlTextarea1" class="form-label">{{ucfirst($name)}} Description</label>
-							<textarea name="{{$name}}_description" class="form-control" placeholder="{{ucfirst($name)}} Description..." id="exampleFormControlTextarea1" rows="3"></textarea>
+							<label for="exampleFormControlTextarea1" class="form-label">Information Description</label>
+							<textarea name="information_description" class="form-control" placeholder="Information Description..." id="exampleFormControlTextarea1" rows="3">{{$information_description}}</textarea>
 						</div>
 						<div  class="mb-3">
 							<button type="submit" class="btn btn-primary">Save</button>

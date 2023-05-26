@@ -25,7 +25,7 @@
 						<a class="nav-link" href="/content">Content</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" hfef="/information">Information</a>
+						<a class="nav-link" href="/information">Information</a>
 					</li>
 				</ul>
 			</div>
